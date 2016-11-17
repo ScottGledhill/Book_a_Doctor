@@ -10,3 +10,4 @@ class DoctorTimes
 end
 
 DataMapper.setup(:default, "postgres://localhost/doctor_availability")
+DataMapper.finalize
