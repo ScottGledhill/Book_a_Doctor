@@ -1,3 +1,5 @@
+require 'model'
+require 'json'
 
 class Booking
   attr_reader :availability
