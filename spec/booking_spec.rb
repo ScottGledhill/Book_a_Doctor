@@ -1,6 +1,8 @@
 require 'booking'
+require 'database_cleaner'
 
 describe Booking do
+
   subject(:booking) {described_class.new}
 
   it 'loads availability file when class created' do
