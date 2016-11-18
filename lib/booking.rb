@@ -15,7 +15,9 @@ class Booking
       requested_slot.update(:availability => false)
       requested_slot.time
     else
-      raise 'slot already booked'
+      next_available_slot = DoctorAvailability.get(requested_slot.id + 1)
+      next_available_slot.update(:availability => false)
+      next_available_slot.time
     end
   end
 
