@@ -9,9 +9,10 @@ class Booking
     add_file_to_database
   end
 
-  def check_availability(time)
-    DoctorAvailability.first(:time => time)
-
+  def check_availability(time_request)
+    requested_slot = DoctorAvailability.first(:time => time_request)
+    requested_slot.update(:availability => false)
+    requested_slot.time
   end
 
   private
