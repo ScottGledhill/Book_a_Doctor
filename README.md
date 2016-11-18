@@ -6,8 +6,8 @@
   
 # To Use
 
-  Clone the repo, create a database named doctor_availability
-  Load the files into a REPL
+  Clone the repo, create a database named doctor_availability<br>
+  Load the files into a REPL<br>
   Follow the demo!
 
 
