@@ -9,19 +9,27 @@ class Booking
     add_file_to_database
   end
 
+  def book_available_slot(time_request)
+    check_availability(time_request)
+  end
+
+  private
+
   def check_availability(time_request)
     requested_slot = DoctorAvailability.first(:time => time_request)
     if requested_slot.availability == true
       requested_slot.update(:availability => false)
       requested_slot.time
     else
-      next_available_slot = DoctorAvailability.get(requested_slot.id + 1)
-      next_available_slot.update(:availability => false)
-      next_available_slot.time
+      next_available_slot(requested_slot)
     end
   end
 
-  private
+  def next_available_slot(requested_slot)
+    next_available = DoctorAvailability.get(requested_slot.id + 1)
+    next_available.update(:availability => false)
+    next_available.time
+  end
 
   def access_file
     file = open("availability.rb", "r")

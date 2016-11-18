@@ -10,12 +10,12 @@ describe Booking do
   end
 
   it 'can check availability and return the booking time' do
-    expect(booking.check_availability('08:00:00')).to eq '08:00:00'
-    expect(booking.check_availability('14:00:00')).to eq '14:00:00'
+    expect(booking.book_available_slot('08:00:00')).to eq '08:00:00'
+    expect(booking.book_available_slot('14:00:00')).to eq '14:00:00'
   end
 
   it 'books the next available slot if availability is false' do
-    booking.check_availability('14:00:00')
-    expect(booking.check_availability('14:00:00')).to eq '14:10:00'
+    booking.book_available_slot('14:00:00')
+    expect(booking.book_available_slot('14:00:00')).to eq '14:10:00'
   end
 end
