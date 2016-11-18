@@ -6,7 +6,7 @@ describe Booking do
   subject(:booking) {described_class.new}
 
   it 'loads availability file when class created' do
-    expect(booking.availability).to include {"availability_slots"}
+    expect(booking.data).to include {"availability_slots"}
   end
 
   it 'can check availability and return the booking time' do

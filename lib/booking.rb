@@ -2,7 +2,7 @@ require 'doctor_availability'
 require 'json'
 
 class Booking
-  attr_reader :availability
+  attr_reader :data
 
   def initialize
     access_file
@@ -32,12 +32,12 @@ class Booking
   end
 
   def access_file
-    file = open("availability.rb", "r")
-    @availability = JSON.parse(file.read)
+    file = open("data.rb", "r")
+    @data = JSON.parse(file.read)
   end
 
   def add_file_to_database
-    availability["availability_slots"].each do |avail|
+    data["availability_slots"].each do |avail|
       DoctorAvailability.create(:time => avail["time"],
       :availability => true,
       :slot_size => avail["slot_size"],
