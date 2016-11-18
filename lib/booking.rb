@@ -9,6 +9,7 @@ class Booking
     add_file_to_database
   end
 
+  
   def access_file
     file = open("availability.rb", "r")
     @availability = JSON.parse(file.read)
@@ -16,7 +17,10 @@ class Booking
 
   def add_file_to_database
     availability["availability_slots"].each do |avail|
-      DoctorAvailablity.create(:time => avail["time"], :availability => true, :slot_size => avail["slot_size"], :doctor_id => avail["doctor_id"])
+      DoctorAvailablity.create(:time => avail["time"],
+      :availability => true,
+      :slot_size => avail["slot_size"],
+      :doctor_id => avail["doctor_id"])
     end
   end
 end
