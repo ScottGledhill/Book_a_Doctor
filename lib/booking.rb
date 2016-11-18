@@ -11,8 +11,12 @@ class Booking
 
   def check_availability(time_request)
     requested_slot = DoctorAvailability.first(:time => time_request)
-    requested_slot.update(:availability => false)
-    requested_slot.time
+    if requested_slot.availability == true
+      requested_slot.update(:availability => false)
+      requested_slot.time
+    else
+      raise 'slot already booked'
+    end
   end
 
   private
