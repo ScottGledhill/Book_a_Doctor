@@ -3,6 +3,13 @@
   A simple program that takes a file of data<br>
   Loads it into a database which can then be used to book a Doctor when available<br>
   Printing the closest available time after the one requested, and which doctor the appointment is with.
+  
+# To Use
+
+  Clone the repo, create a database named doctor_availability
+  Load the files into a REPL
+  Follow the demo!
+
 
 # Demo
 
