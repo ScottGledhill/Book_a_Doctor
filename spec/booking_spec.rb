@@ -10,6 +10,6 @@ describe Booking do
   end
 
   it 'can check availability and return the booking time' do
-    expect(booking.check_availability('08:00:00')).to eq '08:00:00'
+    expect(booking.check_availability('10:00:00')).to eq '08:00:00'
   end
 end
