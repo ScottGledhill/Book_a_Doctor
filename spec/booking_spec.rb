@@ -13,4 +13,9 @@ describe Booking do
     expect(booking.check_availability('08:00:00')).to eq '08:00:00'
     expect(booking.check_availability('14:00:00')).to eq '14:00:00'
   end
+
+  it 'cannot book if availability is false' do
+    booking.check_availability('14:00:00')
+    expect(booking.check_availability('14:00:00')).to eq 'booked'
+  end
 end
