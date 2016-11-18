@@ -19,7 +19,7 @@ class Booking
     requested_slot = DoctorAvailability.first(:time => time_request)
     if requested_slot.availability == true
       requested_slot.update(:availability => false)
-      requested_slot.time
+      "Booked at #{requested_slot.time} with doctor #{requested_slot.doctor_id}"
     else
       next_available_slot(requested_slot)
     end
@@ -28,7 +28,7 @@ class Booking
   def next_available_slot(requested_slot)
     next_available = DoctorAvailability.get(requested_slot.id + 1)
     next_available.update(:availability => false)
-    next_available.time
+    "Booked at #{next_available.time} with doctor #{next_available.doctor_id}"
   end
 
   def access_file
