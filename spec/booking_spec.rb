@@ -23,4 +23,11 @@ describe Booking do
     booking.book_available_slot('14:50:00')
     expect(booking.book_available_slot('14:50:00')).to eq "Booked at 14:50:00 with doctor 2"
   end
+
+  it 'books the next available slot if availability is false multiple times' do
+    booking.book_available_slot('14:00:00')
+    booking.book_available_slot('14:10:00')
+    booking.book_available_slot('14:20:00')
+    expect(booking.book_available_slot('14:00:00')).to include '14:30:00'
+  end
 end
