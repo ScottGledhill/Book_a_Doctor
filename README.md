@@ -1,20 +1,18 @@
 # Book_a_Doctor
 
-Your task is to create an app that will allow patients to book appointments with a doctor, using the dataset provided.
+  A simple program that takes a file of data<br>
+  Loads it into a database which can then be used to book a Doctor when available<br>
+  Printing the closest available time after the one requested, and which doctor the appointment is with.
+  
+# To Use
 
-Requirements
-You should create a command line app that accepts a single argument, which is the time that the patient would like to book to see a doctor. Eg:
+  Clone the repo, create a database named doctor_availability<br>
+  Load the files into a REPL<br>
+  Follow the demo!
 
-$ ./availability.rb 12:40
-The app should check which is the next available slot and book it. It should print the time of the appointment that was booked
 
-Additional Requirements
-Patients cannot book appointments before 8am and after 3pm. Once an availability has been used up for an appointment it cannot be booked again.
+# Demo
 
-In the dataset there are multiple doctors (id: 1 & 2) and each doctor can only have 1 appointment per slot. For example, you could potentially book 12:20 once for doctor 1 and again for doctor 2.
+![demo.gif](https://github.com/ScottGledhill/Book_a_Doctor/blob/master/demo.gif)
 
-Constraints
-Please use the JSON file provided to load availability into your app.
-Your app should be an executable ruby script (command line).
-Your app should accept a time (eg: 12:40)
-Your app should print the time that was booked (eg: 1:10)
+[Scott Gledhill](https://github.com/ScottGledhill)
